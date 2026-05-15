@@ -8,11 +8,21 @@
 import SwiftUI
 
 struct PlaceholderView: View {
+    let note: String
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Rectangle()
+                .inset(by: 7)
+                .fill(Color.metForeground)
+                .border(Color.metBackground, width: 7)
+                .padding()
+            Text(note)
+                .foregroundColor(.metBackground)
+        }
     }
 }
 
 #Preview {
-    PlaceholderView()
+    PlaceholderView(note: "Lorem ipsum")
 }
