@@ -23,3 +23,13 @@ struct SafariView: UIViewControllerRepresentable {
         context: UIViewControllerRepresentableContext<SafariView>
     ) {}
 }
+
+struct SafariView_Preview: PreviewProvider {
+    static var previews: some View {
+        SafariView(
+            url: URL(
+                string: "https://www.metmuseum.org/art/collection/search/437094"
+            )!
+        )
+    }
+}
