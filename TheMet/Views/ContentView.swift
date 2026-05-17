@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+
+    @StateObject private var store = TheMetStore(defaultData: true)
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        List(store.objects, id: \.objectId) { object in
+            Text(object.title)
         }
-        .padding()
     }
 }
 
