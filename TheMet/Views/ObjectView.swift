@@ -11,8 +11,28 @@ struct ObjectView: View {
 
     let object: Object
 
+    var placeholder: some View {
+        if object.isPublicDomain {
+            PlaceholderView(note: "Display image here")
+        } else {
+            PlaceholderView(note: "Image not in public domain.")
+        }
+    }
+
     var body: some View {
-        Text( /*@START_MENU_TOKEN@*/"Hello, World!" /*@END_MENU_TOKEN@*/)
+        VStack {
+            Text(object.title)
+                .multilineTextAlignment(.leading)
+                .font(.callout)
+                .frame(minHeight: 44)
+            placeholder
+            Text(object.creditLine)
+                .font(.caption)
+                .padding()
+                .background(Color.metForeground)
+                .cornerRadius(10)
+        }
+        .padding(.vertical)
     }
 }
 
