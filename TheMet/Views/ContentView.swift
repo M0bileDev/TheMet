@@ -12,8 +12,11 @@ struct ContentView: View {
     @StateObject private var store = TheMetStore(defaultData: true)
 
     var body: some View {
-        List(store.objects, id: \.objectId) { object in
-            Text(object.title)
+        NavigationStack{
+            List(store.objects, id: \.objectId) { object in
+                Text(object.title)
+            }
+            .navigationTitle("The Met")
         }
     }
 }
