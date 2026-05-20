@@ -11,9 +11,16 @@ struct ObjectView: View {
 
     let object: Object
 
+    @ViewBuilder
     var placeholder: some View {
         if object.isPublicDomain {
-            PlaceholderView(note: "Display image here")
+            AsyncImage(url: URL(string: object.primaryImageSmall)) { image in
+              image
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+            } placeholder: {
+              PlaceholderView(note: "Display image here")
+            }
         } else {
             PlaceholderView(note: "Image not in public domain.")
         }
