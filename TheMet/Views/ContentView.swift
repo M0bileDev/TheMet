@@ -14,14 +14,22 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List(store.objects, id: \.objectId) { object in
-                NavigationLink(
-                    destination: SafariView(
-                        url: URL(string: object.objectURL)!
-                    ),
-                    label: {
-                        WebIndicatorView(title: object.title)
-                    }
-                )
+                if !object.isPublicDomain,
+                    let url = URL(string: object.objectURL)
+                {
+                    NavigationLink(
+                        destination: SafariView(url: url),
+                        label: {
+                            WebIndicatorView(title: object.title)
+                        }
+                    )
+                } else {
+                    NavigationLink(
+                        object.title,
+                        destination: ObjectView(object: object)
+                    )
+                }
+
             }
             .navigationTitle("The Met")
         }
