@@ -19,14 +19,7 @@ struct ContentView: View {
                         url: URL(string: object.objectURL)!
                     ),
                     label: {
-                        HStack {
-                            Text(object.title)
-                            Spacer()
-                            Image(
-                                systemName:
-                                    "rectangle.portrait.and.arrow.right.fill"
-                            ).font(.footnote)
-                        }
+                        WebIndicatorView(title: object.title)
                     }
                 )
             }
