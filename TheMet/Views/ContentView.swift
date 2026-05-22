@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentView: View {
 
     @StateObject private var store = TheMetStore(defaultData: true)
+    @State private var query = "Lorem ipsum"
+    @State private var showQueryField = false
 
     var body: some View {
         NavigationStack {
