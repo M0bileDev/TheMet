@@ -33,6 +33,15 @@ struct ContentView: View {
 
             }
             .navigationTitle("The Met")
+            .toolbar {
+                Button("Search the Met") {
+                    query = ""
+                    showQueryField = true
+                }
+                .foregroundColor(Color.metBackground)
+                .padding(.horizontal)
+                .shadow(color: Color.red.opacity(0.5), radius: 6)
+            }
             .navigationDestination(
                 for: URL.self,
                 destination: { url in
