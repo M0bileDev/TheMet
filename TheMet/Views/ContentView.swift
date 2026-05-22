@@ -28,6 +28,20 @@ struct ContentView: View {
 
             }
             .navigationTitle("The Met")
+            .navigationDestination(
+                for: URL.self,
+                destination: { url in
+                    SafariView(url: url)
+                        .navigationBarTitleDisplayMode(.inline)
+                        .ignoresSafeArea()
+                }
+            )
+            .navigationDestination(
+                for: Object.self,
+                destination: { object in
+                    ObjectView(object: object)
+                }
+            )
         }
     }
 }
