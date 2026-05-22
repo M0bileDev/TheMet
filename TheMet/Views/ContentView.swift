@@ -42,6 +42,14 @@ struct ContentView: View {
                 .padding(.horizontal)
                 .shadow(color: Color.red.opacity(0.5), radius: 6)
             }
+            .alert(
+                "Search the Met",
+                isPresented: $showQueryField,
+                actions: {
+                    TextField("Seatch the Met", text: $query)
+                    Button("Search") {}
+                }
+            )
             .navigationDestination(
                 for: URL.self,
                 destination: { url in
