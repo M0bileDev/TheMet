@@ -17,17 +17,13 @@ struct ContentView: View {
                 if !object.isPublicDomain,
                     let url = URL(string: object.objectURL)
                 {
-                    NavigationLink(
-                        destination: SafariView(url: url),
-                        label: {
-                            WebIndicatorView(title: object.title)
-                        }
-                    )
+                    NavigationLink(value: url) {
+                        WebIndicatorView(title: object.title)
+                    }
                 } else {
-                    NavigationLink(
-                        object.title,
-                        destination: ObjectView(object: object)
-                    )
+                    NavigationLink(value: object) {
+                        Text(object.title)
+                    }
                 }
 
             }
