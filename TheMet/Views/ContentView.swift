@@ -20,10 +20,13 @@ struct ContentView: View {
                     NavigationLink(value: url) {
                         WebIndicatorView(title: object.title)
                     }
+                    .listRowBackground(Color.metBackground)
+                    .foregroundStyle(.white)
                 } else {
                     NavigationLink(value: object) {
                         Text(object.title)
                     }
+                    .listRowBackground(Color.metForeground)
                 }
 
             }
