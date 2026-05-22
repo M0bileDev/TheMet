@@ -22,7 +22,7 @@ struct ObjectView: View {
               PlaceholderView(note: "Display image here")
             }
         } else {
-            PlaceholderView(note: "Image not in public domain.")
+            PlaceholderView(note: "Image not in public domain. URL not valid.")
         }
     }
 
