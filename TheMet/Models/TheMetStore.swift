@@ -16,4 +16,6 @@ class TheMetStore: ObservableObject {
             objects = initialObjects
         }
     }
+    
+    func fetchObjects(query: String) async throws{}
 }
