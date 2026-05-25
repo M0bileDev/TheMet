@@ -13,6 +13,21 @@ struct TheMetService {
     let decoder = JSONDecoder()
 
     func getObjectIds(query: String) async throws -> ObjectIds? {
+        let objectIds: ObjectIds?
+
+        guard
+            var urlComponents = URLComponents(string: baseURL + "search")
+        else {
+            return nil
+        }
+
+        let parameters = ["hasImages": "true"]
+        urlComponents.setQueryItems(parameters: parameters)
+        urlComponents.queryItems! += [URLQueryItem(name: "q", value: query)]
+
+        guard let url = urlComponents.url else { return nil }
+        let request = URLRequest(url: url)
+
         return nil
     }
 
