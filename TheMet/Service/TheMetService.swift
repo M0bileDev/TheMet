@@ -12,8 +12,12 @@ struct TheMetService {
     let session = URLSession.shared
     let decoder = JSONDecoder()
 
-    func getObjectIds(query: String) async throws -> ObjectIds? {
-        let objectIds: ObjectIds?
+    func getObjectIds(query: String) async throws -> ObjectIDs? {
+        if query.isEmpty {
+            return nil
+        }
+            
+        let objectIds: ObjectIDs?
 
         guard
             var urlComponents = URLComponents(string: baseURL + "search")
@@ -43,7 +47,7 @@ struct TheMetService {
         }
 
         do {
-            objectIds = try decoder.decode(ObjectIds.self, from: data)
+            objectIds = try decoder.decode(ObjectIDs.self, from: data)
         } catch {
             print("Decoder error: \(error)")
             return nil
