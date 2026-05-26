@@ -10,12 +10,12 @@ import Foundation
 
 class TheMetStore: ObservableObject {
     @Published var objects: [Object] = []
+    let service = TheMetService()
+    let maxIndex: Int
 
-    init(defaultData: Bool = false) {
-        if defaultData {
-            objects = initialObjects
-        }
+    init(maxIndex: Int = 30) {
+        self.maxIndex = maxIndex
     }
-    
-    func fetchObjects(query: String) async throws{}
+
+    func fetchObjects(query: String) async throws {}
 }
