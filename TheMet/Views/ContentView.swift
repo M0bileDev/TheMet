@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
 
-    @StateObject private var store = TheMetStore(defaultData: true)
+    @StateObject private var store = TheMetStore()
     @State private var query = "Lorem ipsum"
     @State private var showQueryField = false
 
