@@ -9,7 +9,7 @@ import Foundation
 
 var initialObjects: [Object] = [
     Object(
-        objectId: 452174,
+        objectID: 452174,
         title: "Bahram Gur Slays the Rhino-Wolf",
         creditLine: "Gift of Arthur A. Houghton Jr., 1970",
         objectURL:
@@ -19,7 +19,7 @@ var initialObjects: [Object] = [
             "https://images.metmuseum.org/CRDImages/is/original/DP107178.jpg"
     ),
     Object(
-        objectId: 241715,
+        objectID: 241715,
         title: "Terracotta oil lamp",
         creditLine:
             "The Cesnola Collection, Purchased by subscription, 1874–76",
@@ -29,7 +29,7 @@ var initialObjects: [Object] = [
         primaryImageSmall: ""
     ),
     Object(
-        objectId: 452648,
+        objectID: 452648,
         title: "Gushtasp Slays the Rhino-Wolf",
         creditLine: "Bequest of Monroe C. Gutman, 1974",
         objectURL:
