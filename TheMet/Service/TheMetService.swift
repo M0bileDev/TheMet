@@ -53,6 +53,35 @@ struct TheMetService {
     }
 
     func getObject(objectId: Int) async throws -> Object? {
-        return nil
+        let object: Object?
+        let objectsPath = "objects/"
+        let objectQuery = "\(objectId)"
+
+        guard let objectURL = URL(string: baseURL + objectsPath + objectQuery)
+        else { return nil }
+        let objectRequest = URLRequest(url: objectURL)
+
+        let (data, response) = try await session.data(for: objectRequest)
+
+        guard let httpUrlResponse = response as? HTTPURLResponse else {
+            print("getObject: response is not HTTPURLResponse")
+            return nil
+        }
+
+        guard (200..<300).contains(httpUrlResponse.statusCode) else {
+            print(
+                "getObject incorrect, status code: \(httpUrlResponse.statusCode)"
+            )
+            return nil
+        }
+
+        do {
+            object = try decoder.decode(Object.self, from: data)
+        } catch {
+            print("Decoder error: \(error)")
+            return nil
+        }
+
+        return object
     }
 }
