@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
 
     @StateObject private var store = TheMetStore()
-    @State private var query = "Lorem ipsum"
+    @State private var query = "rhino"
     @State private var showQueryField = false
 
     var body: some View {
@@ -22,7 +22,7 @@ struct ContentView: View {
                     .cornerRadius(10)
                     .padding()
 
-                List(store.objects, id: \.objectId) { object in
+                List(store.objects, id: \.objectID) { object in
                     if !object.isPublicDomain,
                         let url = URL(string: object.objectURL)
                     {
@@ -71,6 +71,11 @@ struct ContentView: View {
                         ObjectView(object: object)
                     }
                 )
+            }
+            .task {
+                do {
+                    try await store.fetchObjects(query: query)
+                } catch {}
             }
         }
     }
