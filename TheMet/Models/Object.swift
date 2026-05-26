@@ -8,7 +8,7 @@
 import Foundation
 
 struct Object: Codable, Hashable {
-    let objectId: Int
+    let objectID: Int
     let title: String
     let creditLine: String
     let objectURL: String
@@ -16,7 +16,7 @@ struct Object: Codable, Hashable {
     let primaryImageSmall: String
 }
 
-struct ObjectIds: Codable {
+struct ObjectIDs: Codable {
     let total: Int
-    let objectIds: [Int]
+    let objectIDs: [Int]
 }
