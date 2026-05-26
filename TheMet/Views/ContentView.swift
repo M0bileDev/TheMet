@@ -54,7 +54,14 @@ struct ContentView: View {
                     isPresented: $showQueryField,
                     actions: {
                         TextField("Seatch the Met", text: $query)
-                        Button("Search") {}
+                        Button("Search") {
+                            Task {
+                                do {
+                                    store.objects = []
+                                    try await store.fetchObjects(query: query)
+                                } catch {}
+                            }
+                        }
                     }
                 )
                 .navigationDestination(
@@ -71,11 +78,6 @@ struct ContentView: View {
                         ObjectView(object: object)
                     }
                 )
-            }
-            .task {
-                do {
-                    try await store.fetchObjects(query: query)
-                } catch {}
             }
         }
     }
