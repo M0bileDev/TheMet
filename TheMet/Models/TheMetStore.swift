@@ -24,7 +24,9 @@ class TheMetStore: ObservableObject {
                 if let object = try await service.getObject(
                     objectId: objectId
                 ) {
-                    objects.append(object)
+                    await MainActor.run{
+                        objects.append(object)
+                    }
                 }
             }
         }
