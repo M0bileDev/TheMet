@@ -81,6 +81,9 @@ struct ContentView: View {
                     }
                 )
             }
+            .overlay{
+                if store.objects.isEmpty { ProgressView() }
+            }
         }
     }
 }
