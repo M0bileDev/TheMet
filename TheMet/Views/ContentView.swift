@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
 
-    @StateObject private var store = TheMetStore()
+    @StateObject private var store = TheMetStore(maxIndex: 5)
     @State private var query = "rhino"
     @State private var showQueryField = false
     @State private var fetchObjectsTask: Task<Void, Error>?
@@ -81,7 +81,7 @@ struct ContentView: View {
                     }
                 )
             }
-            .overlay{
+            .overlay {
                 if store.objects.isEmpty { ProgressView() }
             }
         }
