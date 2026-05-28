@@ -24,7 +24,7 @@ struct Provider: TimelineProvider {
         let entry = SimpleEntry(
             date: Date(),
             emoji: "😀",
-            object: Object.sample(isPublicDomain: true)
+            object: Object.sample(isPublicDomain: false)
         )
         completion(entry)
     }
@@ -115,6 +115,6 @@ struct TheMetWidget: Widget {
     SimpleEntry(
         date: .now,
         emoji: "🤩",
-        object: Object.sample(isPublicDomain: true)
+        object: Object.sample(isPublicDomain: false)
     )
 }
