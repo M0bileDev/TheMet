@@ -12,7 +12,6 @@ struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(
             date: Date(),
-            emoji: "😀",
             object: Object.sample(isPublicDomain: true)
         )
     }
@@ -23,7 +22,6 @@ struct Provider: TimelineProvider {
     ) {
         let entry = SimpleEntry(
             date: Date(),
-            emoji: "😀",
             object: Object.sample(isPublicDomain: false)
         )
         completion(entry)
@@ -45,7 +43,6 @@ struct Provider: TimelineProvider {
             )!
             let entry = SimpleEntry(
                 date: entryDate,
-                emoji: "😀",
                 object: Object.sample(isPublicDomain: true)
             )
             entries.append(entry)
@@ -62,7 +59,6 @@ struct Provider: TimelineProvider {
 
 struct SimpleEntry: TimelineEntry {
     let date: Date
-    let emoji: String
     let object: Object
 }
 
@@ -71,11 +67,9 @@ struct TheMetWidgetEntryView: View {
 
     var body: some View {
         VStack {
-            Text("Time:")
-            Text(entry.date, style: .time)
-
-            Text("Emoji:")
-            Text(entry.emoji)
+            Text(entry.object.title)
+                .font(.title3)
+                .lineLimit(3)
         }
     }
 }
@@ -109,12 +103,10 @@ struct TheMetWidget: Widget {
 } timeline: {
     SimpleEntry(
         date: .now,
-        emoji: "😀",
         object: Object.sample(isPublicDomain: true)
     )
     SimpleEntry(
         date: .now,
-        emoji: "🤩",
         object: Object.sample(isPublicDomain: false)
     )
 }
