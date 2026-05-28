@@ -51,6 +51,7 @@ struct Provider: TimelineProvider {
 struct SimpleEntry: TimelineEntry {
     let date: Date
     let emoji: String
+    let object: Object
 }
 
 struct TheMetWidgetEntryView: View {
