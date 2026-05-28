@@ -56,6 +56,7 @@
 			membershipExceptions = (
 				Assets.xcassets,
 				Models/Object.swift,
+				Views/DetailIndicatorView.swift,
 				Views/PlaceholderView.swift,
 				Views/WebIndicatorView.swift,
 			);
