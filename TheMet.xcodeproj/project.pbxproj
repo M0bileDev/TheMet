@@ -54,6 +54,7 @@
 		A7997FCB2FC8BC9000A342F5 /* Exceptions for "TheMet" folder in "TheMetWidgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Assets.xcassets,
 				Models/Object.swift,
 			);
 			target = A7997F6D2FC8B95300A342F5 /* TheMetWidgetExtension */;
