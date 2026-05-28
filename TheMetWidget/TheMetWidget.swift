@@ -67,10 +67,22 @@ struct TheMetWidgetEntryView: View {
 
     var body: some View {
         VStack {
-            Text(entry.object.title)
-                .font(.title3)
-                .lineLimit(3)
+            Text("The Met")
+                .font(.headline)
+            Divider()
+            if !entry.object.isPublicDomain {
+                WebIndicatorView(title: entry.object.title)
+                    .padding()
+                    .background(.metBackground)
+                    .foregroundStyle(.white)
+            } else {
+                DetailIndicatorView(title: entry.object.title)
+                    .padding()
+                    .background(.metForeground)
+            }
         }
+        .truncationMode(.middle)
+        .fontWeight(.semibold)
     }
 }
 
@@ -98,7 +110,7 @@ struct TheMetWidget: Widget {
     }
 }
 
-#Preview(as: .systemSmall) {
+#Preview(as: .systemMedium) {
     TheMetWidget()
 } timeline: {
     SimpleEntry(
