@@ -10,14 +10,22 @@ import WidgetKit
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), emoji: "😀")
+        SimpleEntry(
+            date: Date(),
+            emoji: "😀",
+            object: Object.sample(isPublicDomain: true)
+        )
     }
 
     func getSnapshot(
         in context: Context,
         completion: @escaping (SimpleEntry) -> Void
     ) {
-        let entry = SimpleEntry(date: Date(), emoji: "😀")
+        let entry = SimpleEntry(
+            date: Date(),
+            emoji: "😀",
+            object: Object.sample(isPublicDomain: true)
+        )
         completion(entry)
     }
 
@@ -27,7 +35,7 @@ struct Provider: TimelineProvider {
     ) {
         var entries: [SimpleEntry] = []
 
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
+        // Generate a timeline consisting of five entries an hour apart, starting from the current date
         let currentDate = Date()
         for hourOffset in 0..<5 {
             let entryDate = Calendar.current.date(
@@ -35,7 +43,11 @@ struct Provider: TimelineProvider {
                 value: hourOffset,
                 to: currentDate
             )!
-            let entry = SimpleEntry(date: entryDate, emoji: "😀")
+            let entry = SimpleEntry(
+                date: entryDate,
+                emoji: "😀",
+                object: Object.sample(isPublicDomain: true)
+            )
             entries.append(entry)
         }
 
@@ -95,6 +107,14 @@ struct TheMetWidget: Widget {
 #Preview(as: .systemSmall) {
     TheMetWidget()
 } timeline: {
-    SimpleEntry(date: .now, emoji: "😀")
-    SimpleEntry(date: .now, emoji: "🤩")
+    SimpleEntry(
+        date: .now,
+        emoji: "😀",
+        object: Object.sample(isPublicDomain: true)
+    )
+    SimpleEntry(
+        date: .now,
+        emoji: "🤩",
+        object: Object.sample(isPublicDomain: true)
+    )
 }
