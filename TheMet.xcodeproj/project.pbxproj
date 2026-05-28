@@ -56,6 +56,8 @@
 			membershipExceptions = (
 				Assets.xcassets,
 				Models/Object.swift,
+				Views/PlaceholderView.swift,
+				Views/WebIndicatorView.swift,
 			);
 			target = A7997F6D2FC8B95300A342F5 /* TheMetWidgetExtension */;
 		};
