@@ -6,11 +6,62 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A7997F712FC8B95300A342F5 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7997F702FC8B95300A342F5 /* WidgetKit.framework */; };
+		A7997F732FC8B95300A342F5 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7997F722FC8B95300A342F5 /* SwiftUI.framework */; };
+		A7997F7E2FC8B95400A342F5 /* TheMetWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A7997F6E2FC8B95300A342F5 /* TheMetWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A7997F7C2FC8B95400A342F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A7A22FC92FB7B00B008F5EAF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A7997F6D2FC8B95300A342F5;
+			remoteInfo = TheMetWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A7997F7F2FC8B95400A342F5 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A7997F7E2FC8B95400A342F5 /* TheMetWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		A7997F6E2FC8B95300A342F5 /* TheMetWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TheMetWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7997F702FC8B95300A342F5 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		A7997F722FC8B95300A342F5 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		A7A22FD12FB7B00B008F5EAF /* TheMet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		A7997F822FC8B95400A342F5 /* Exceptions for "TheMetWidget" folder in "TheMetWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = A7997F6D2FC8B95300A342F5 /* TheMetWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		A7997F742FC8B95300A342F5 /* TheMetWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				A7997F822FC8B95400A342F5 /* Exceptions for "TheMetWidget" folder in "TheMetWidgetExtension" target */,
+			);
+			path = TheMetWidget;
+			sourceTree = "<group>";
+		};
 		A7A22FD32FB7B00B008F5EAF /* TheMet */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = TheMet;
@@ -19,6 +70,15 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A7997F6B2FC8B95300A342F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7997F732FC8B95300A342F5 /* SwiftUI.framework in Frameworks */,
+				A7997F712FC8B95300A342F5 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A7A22FCE2FB7B00B008F5EAF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -29,10 +89,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A7997F6F2FC8B95300A342F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A7997F702FC8B95300A342F5 /* WidgetKit.framework */,
+				A7997F722FC8B95300A342F5 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A7A22FC82FB7B00B008F5EAF = {
 			isa = PBXGroup;
 			children = (
 				A7A22FD32FB7B00B008F5EAF /* TheMet */,
+				A7997F742FC8B95300A342F5 /* TheMetWidget */,
+				A7997F6F2FC8B95300A342F5 /* Frameworks */,
 				A7A22FD22FB7B00B008F5EAF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				A7A22FD12FB7B00B008F5EAF /* TheMet.app */,
+				A7997F6E2FC8B95300A342F5 /* TheMetWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,6 +120,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A7997F6D2FC8B95300A342F5 /* TheMetWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7997F832FC8B95400A342F5 /* Build configuration list for PBXNativeTarget "TheMetWidgetExtension" */;
+			buildPhases = (
+				A7997F6A2FC8B95300A342F5 /* Sources */,
+				A7997F6B2FC8B95300A342F5 /* Frameworks */,
+				A7997F6C2FC8B95300A342F5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				A7997F742FC8B95300A342F5 /* TheMetWidget */,
+			);
+			name = TheMetWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = TheMetWidgetExtension;
+			productReference = A7997F6E2FC8B95300A342F5 /* TheMetWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		A7A22FD02FB7B00B008F5EAF /* TheMet */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A7A22FDC2FB7B00C008F5EAF /* Build configuration list for PBXNativeTarget "TheMet" */;
@@ -55,10 +149,12 @@
 				A7A22FCD2FB7B00B008F5EAF /* Sources */,
 				A7A22FCE2FB7B00B008F5EAF /* Frameworks */,
 				A7A22FCF2FB7B00B008F5EAF /* Resources */,
+				A7997F7F2FC8B95400A342F5 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A7997F7D2FC8B95400A342F5 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				A7A22FD32FB7B00B008F5EAF /* TheMet */,
@@ -80,6 +176,9 @@
 				LastSwiftUpdateCheck = 2620;
 				LastUpgradeCheck = 2620;
 				TargetAttributes = {
+					A7997F6D2FC8B95300A342F5 = {
+						CreatedOnToolsVersion = 26.2;
+					};
 					A7A22FD02FB7B00B008F5EAF = {
 						CreatedOnToolsVersion = 26.2;
 					};
@@ -100,11 +199,19 @@
 			projectRoot = "";
 			targets = (
 				A7A22FD02FB7B00B008F5EAF /* TheMet */,
+				A7997F6D2FC8B95300A342F5 /* TheMetWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A7997F6C2FC8B95300A342F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A7A22FCF2FB7B00B008F5EAF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -115,6 +222,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A7997F6A2FC8B95300A342F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A7A22FCD2FB7B00B008F5EAF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -124,7 +238,73 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		A7997F7D2FC8B95400A342F5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A7997F6D2FC8B95300A342F5 /* TheMetWidgetExtension */;
+			targetProxy = A7997F7C2FC8B95400A342F5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		A7997F802FC8B95400A342F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TheMetWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TheMetWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.example.TheMet.TheMetWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A7997F812FC8B95400A342F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TheMetWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TheMetWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.example.TheMet.TheMetWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		A7A22FDA2FB7B00C008F5EAF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -309,6 +489,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A7997F832FC8B95400A342F5 /* Build configuration list for PBXNativeTarget "TheMetWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7997F802FC8B95400A342F5 /* Debug */,
+				A7997F812FC8B95400A342F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A7A22FCC2FB7B00B008F5EAF /* Build configuration list for PBXProject "TheMet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
