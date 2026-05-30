@@ -55,7 +55,10 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Assets.xcassets,
+				Extensions/URLComponentsExtension.swift,
 				Models/Object.swift,
+				Models/TheMetStore.swift,
+				Service/TheMetService.swift,
 				Views/DetailIndicatorView.swift,
 				Views/PlaceholderView.swift,
 				Views/WebIndicatorView.swift,
