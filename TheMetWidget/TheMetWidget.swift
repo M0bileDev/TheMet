@@ -9,6 +9,10 @@ import SwiftUI
 import WidgetKit
 
 struct Provider: TimelineProvider {
+    
+    let store = TheMetStore(maxIndex: 6)
+    let query = "persimon"
+    
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(
             date: Date(),
