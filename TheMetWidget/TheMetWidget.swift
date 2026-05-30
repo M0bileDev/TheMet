@@ -11,7 +11,7 @@ import WidgetKit
 struct Provider: TimelineProvider {
 
     let store = TheMetStore(maxIndex: 6)
-    let query = "persimon"
+    let query = "persimmon"
 
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(
@@ -35,12 +35,6 @@ struct Provider: TimelineProvider {
         in context: Context,
         completion: @escaping (Timeline<Entry>) -> Void
     ) {
-        var entries: [SimpleEntry] = []
-
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date
-        let currentDate = Date()
-        let interval = 2
-
         Task {
             do {
                 // fetch from api
@@ -52,29 +46,30 @@ struct Provider: TimelineProvider {
                     Object.sample(isPublicDomain: false),
                 ]
             }
-        }
-        for index in 0..<store.objects.count {
-            let entryDate = Calendar.current.date(
-                // delay type
-                byAdding: .second,
-                // change the interval -> index * two seconds apart
-                value: index * interval,
-                to: currentDate
-            )!
-            let entry = SimpleEntry(
-                date: entryDate,
-                object: store.objects[index]
-            )
-            entries.append(entry)
-        }
 
-        let timeline = Timeline(entries: entries, policy: .atEnd)
-        completion(timeline)
+            // build entries only after objects are ready
+            var entries: [SimpleEntry] = []
+            let currentDate = Date()
+            let interval = 2
+
+            // Generate a timeline consisting of entries from store
+            for index in 0..<store.objects.count {
+                let entryDate = Calendar.current.date(
+                    // delay type
+                    byAdding: .second,
+                    // change the interval -> index * two seconds apart
+                    value: index * interval,
+                    to: currentDate
+                )!
+                entries.append(
+                    SimpleEntry(date: entryDate, object: store.objects[index])
+                )
+            }
+
+            let timeline = Timeline(entries: entries, policy: .atEnd)
+            completion(timeline)
+        }
     }
-
-    //    func relevances() async -> WidgetRelevances<Void> {
-    //        // Generate a list containing the contexts this widget is relevant in.
-    //    }
 }
 
 struct SimpleEntry: TimelineEntry {
