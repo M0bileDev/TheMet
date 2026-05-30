@@ -105,12 +105,26 @@ struct TheMetWidget: Widget {
                     .background()
             }
         }
+        .supportedFamilies([.systemMedium, .systemLarge])
         .configurationDisplayName("The Met")
         .description("View objects from the Metropolitan Museum.")
     }
 }
 
 #Preview(as: .systemMedium) {
+    TheMetWidget()
+} timeline: {
+    SimpleEntry(
+        date: .now,
+        object: Object.sample(isPublicDomain: true)
+    )
+    SimpleEntry(
+        date: .now,
+        object: Object.sample(isPublicDomain: false)
+    )
+}
+
+#Preview(as: .systemLarge) {
     TheMetWidget()
 } timeline: {
     SimpleEntry(
