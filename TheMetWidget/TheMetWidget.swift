@@ -9,10 +9,10 @@ import SwiftUI
 import WidgetKit
 
 struct Provider: TimelineProvider {
-    
+
     let store = TheMetStore(maxIndex: 6)
     let query = "persimon"
-    
+
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(
             date: Date(),
@@ -39,15 +39,31 @@ struct Provider: TimelineProvider {
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date
         let currentDate = Date()
-        for hourOffset in 0..<5 {
+        let interval = 2
+
+        Task {
+            do {
+                // fetch from api
+                try await store.fetchObjects(query: query)
+            } catch {
+                // if fails load the local data
+                store.objects = [
+                    Object.sample(isPublicDomain: true),
+                    Object.sample(isPublicDomain: false),
+                ]
+            }
+        }
+        for index in 0..<store.objects.count {
             let entryDate = Calendar.current.date(
-                byAdding: .hour,
-                value: hourOffset,
+                // delay type
+                byAdding: .second,
+                // change the interval -> index * two seconds apart
+                value: index * interval,
                 to: currentDate
             )!
             let entry = SimpleEntry(
                 date: entryDate,
-                object: Object.sample(isPublicDomain: true)
+                object: store.objects[index]
             )
             entries.append(entry)
         }
