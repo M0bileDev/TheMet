@@ -9,6 +9,15 @@ import Combine
 import Foundation
 import WidgetKit
 
+extension FileManager {
+    static func getSharedContainerURL() -> URL {
+        return FileManager.default.containerURL(
+            forSecurityApplicationGroupIdentifier:
+                "group.org.example.TheMet.objects"
+        )!
+    }
+}
+
 class TheMetStore: ObservableObject {
     @Published var objects: [Object] = []
     let service = TheMetService()
@@ -25,7 +34,7 @@ class TheMetStore: ObservableObject {
                 if let object = try await service.getObject(
                     objectId: objectId
                 ) {
-                    await MainActor.run{
+                    await MainActor.run {
                         objects.append(object)
                     }
                 }
