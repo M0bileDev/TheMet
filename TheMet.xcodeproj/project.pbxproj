@@ -37,6 +37,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A76102AB2FCCD0D6005CE66F /* TheMetWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheMetWidgetExtension.entitlements; sourceTree = "<group>"; };
 		A7997F6E2FC8B95300A342F5 /* TheMetWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TheMetWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7997F702FC8B95300A342F5 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		A7997F722FC8B95300A342F5 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -118,6 +119,7 @@
 		A7A22FC82FB7B00B008F5EAF = {
 			isa = PBXGroup;
 			children = (
+				A76102AB2FCCD0D6005CE66F /* TheMetWidgetExtension.entitlements */,
 				A7A22FD32FB7B00B008F5EAF /* TheMet */,
 				A7997F742FC8B95300A342F5 /* TheMetWidget */,
 				A7997F6F2FC8B95300A342F5 /* Frameworks */,
@@ -269,8 +271,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = TheMetWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6BZN75Z4XB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TheMetWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TheMetWidget;
@@ -298,8 +302,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = TheMetWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6BZN75Z4XB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TheMetWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TheMetWidget;
@@ -446,8 +452,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TheMet/TheMet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6BZN75Z4XB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -477,8 +485,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TheMet/TheMet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6BZN75Z4XB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
