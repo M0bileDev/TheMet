@@ -39,6 +39,7 @@ class TheMetStore: ObservableObject {
                     }
                 }
             }
+            writeObjects()
             WidgetCenter.shared.reloadTimelines(ofKind: "TheMetWidget")
         }
     }
