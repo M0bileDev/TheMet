@@ -42,4 +42,18 @@ class TheMetStore: ObservableObject {
             WidgetCenter.shared.reloadTimelines(ofKind: "TheMetWidget")
         }
     }
+
+    func writeObjects() {
+        let archiveURL = FileManager.getSharedContainerURL()
+            .appendingPathComponent("objects.json")
+
+        let encoder = JSONEncoder()
+        if let dataToSave = try? encoder.encode(objects) {
+            do {
+                try dataToSave.write(to: archiveURL)
+            } catch {
+                print("Store error: Can't write objects!")
+            }
+        }
+    }
 }
