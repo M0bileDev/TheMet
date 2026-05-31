@@ -7,6 +7,7 @@
 
 import Combine
 import Foundation
+import WidgetKit
 
 class TheMetStore: ObservableObject {
     @Published var objects: [Object] = []
@@ -29,6 +30,7 @@ class TheMetStore: ObservableObject {
                     }
                 }
             }
+            WidgetCenter.shared.reloadTimelines(ofKind: "TheMetWidget")
         }
     }
 }
