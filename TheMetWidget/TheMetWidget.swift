@@ -13,6 +13,25 @@ struct Provider: TimelineProvider {
     let store = TheMetStore(maxIndex: 6)
     let query = "persimmon"
 
+    func readObjects() -> [Object] {
+        var objects: [Object] = []
+        let archiveURL = FileManager.getSharedContainerURL()
+            .appendingPathComponent("objects.json")
+
+        let jsonDecoder = JSONDecoder()
+        if let codeData = try? Data(
+            contentsOf: archiveURL
+        ) {
+            do {
+                objects = try jsonDecoder.decode([Object].self, from: codeData)
+            } catch {
+                print("Provider error: Can't decode objects")
+            }
+        }
+
+        return objects
+    }
+
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(
             date: Date(),
