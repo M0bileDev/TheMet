@@ -10,13 +10,13 @@ import SwiftUI
 struct ContentView: View {
 
     @StateObject private var store = TheMetStore(maxIndex: 5)
-    @State private var query = "rhino"
+    @State private var query = ""
     @State private var showQueryField = false
     @State private var fetchObjectsTask: Task<Void, Error>?
     @State private var path = NavigationPath()
 
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             VStack {
                 Text("You searched for '\(query)'")
                     .padding(10)
@@ -86,6 +86,22 @@ struct ContentView: View {
                 if store.objects.isEmpty { ProgressView() }
             }
         }
+        .onOpenURL(perform: { url in
+            if let id = url.host,
+                let object = store.objects.first(where: {
+                    String($0.objectID) == id
+                })
+            {
+                if object.isPublicDomain {
+                    path.append(object)
+                } else {
+                    if let url = URL(string: object.objectURL) {
+                        path.append(url)
+                    }
+                }
+            }
+        })
+
     }
 }
 
