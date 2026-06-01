@@ -103,6 +103,7 @@ struct TheMetWidgetEntryView: View {
         }
         .truncationMode(.middle)
         .fontWeight(.semibold)
+        .widgetURL(URL(string: "themet://\(entry.object.objectID)"))
     }
 }
 
