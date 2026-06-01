@@ -10,9 +10,6 @@ import WidgetKit
 
 struct Provider: TimelineProvider {
 
-    let store = TheMetStore(maxIndex: 6)
-    let query = "persimmon"
-
     func readObjects() -> [Object] {
         var objects: [Object] = []
         let archiveURL = FileManager.getSharedContainerURL()
@@ -54,41 +51,30 @@ struct Provider: TimelineProvider {
         in context: Context,
         completion: @escaping (Timeline<Entry>) -> Void
     ) {
-        Task {
-            do {
-                // fetch from api
-                try await store.fetchObjects(query: query)
-            } catch {
-                // if fails load the local data
-                store.objects = [
-                    Object.sample(isPublicDomain: true),
-                    Object.sample(isPublicDomain: false),
-                ]
-            }
 
-            // build entries only after objects are ready
-            var entries: [SimpleEntry] = []
-            let currentDate = Date()
-            let interval = 2
+        // build entries only after objects are ready
+        var entries: [SimpleEntry] = []
+        let currentDate = Date()
+        let interval = 2
 
-            // Generate a timeline consisting of entries from store
-            for index in 0..<store.objects.count {
-                let entryDate = Calendar.current.date(
-                    // delay type
-                    byAdding: .second,
-                    // change the interval -> index * two seconds apart
-                    value: index * interval,
-                    to: currentDate
-                )!
-                entries.append(
-                    SimpleEntry(date: entryDate, object: store.objects[index])
-                )
-            }
-
-            let timeline = Timeline(entries: entries, policy: .atEnd)
-            completion(timeline)
+        let objects = readObjects()
+        // Generate a timeline consisting of entries from Objects File
+        for index in 0..<objects.count {
+            let entryDate = Calendar.current.date(
+                // delay type
+                byAdding: .second,
+                // change the interval -> index * two seconds apart
+                value: index * interval,
+                to: currentDate
+            )!
+            let entry = SimpleEntry(date: entryDate, object: objects[index])
+            entries.append(entry)
         }
+
+        let timeline = Timeline(entries: entries, policy: .atEnd)
+        completion(timeline)
     }
+
 }
 
 struct SimpleEntry: TimelineEntry {
