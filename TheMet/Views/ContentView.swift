@@ -13,6 +13,7 @@ struct ContentView: View {
     @State private var query = "rhino"
     @State private var showQueryField = false
     @State private var fetchObjectsTask: Task<Void, Error>?
+    @State private var path = NavigationPath()
 
     var body: some View {
         NavigationStack {
