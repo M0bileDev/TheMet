@@ -55,7 +55,7 @@ struct ContentView: View {
                     "Search the Met",
                     isPresented: $showQueryField,
                     actions: {
-                        TextField("Seatch the Met", text: $query)
+                        TextField("Search the Met", text: $query)
                         Button("Search") {
                             fetchObjectsTask?.cancel()
                             fetchObjectsTask = Task {
