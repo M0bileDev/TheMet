@@ -55,16 +55,14 @@ struct Provider: TimelineProvider {
         // build entries only after objects are ready
         var entries: [SimpleEntry] = []
         let currentDate = Date()
-        let interval = 2
 
         let objects = readObjects()
         // Generate a timeline consisting of entries from Objects File
         for index in 0..<objects.count {
             let entryDate = Calendar.current.date(
-                // delay type
-                byAdding: .second,
-                // change the interval -> index * two seconds apart
-                value: index * interval,
+                // entries one hour apart from each other
+                byAdding: .hour,
+                value: index,
                 to: currentDate
             )!
             let entry = SimpleEntry(date: entryDate, object: objects[index])
